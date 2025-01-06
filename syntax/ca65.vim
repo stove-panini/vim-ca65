@@ -43,6 +43,7 @@ syn match ca65Number "#\?\d\+\>"
 syn match ca65Number "#\?$\x\+\>"
 syn match ca65Number "#\?\x\+h\>"
 syn match ca65Number "#\?%[01]\+\>"
+syn match ca65Number "#[<>]"he=e-1
 
 " ref: https://cc65.github.io/doc/ca65.html
 " Operators
@@ -62,8 +63,9 @@ syn match ca65Operator "\.SHL\>"
 syn match ca65Operator "\.SHR\>"
 syn match ca65Operator "\.XOR\>"
 
-" Labels
-syn match ca65Label "[a-z@]\w*:"he=e-1
+" Labels & Symbols
+syn match ca65Label  "[a-z@]\w*:"he=e-1
+syn match ca65Symbol "[a-z]\w*\s*="he=e-1
 
 " Address sizes
 syn keyword ca65AddressSizeKeyword
@@ -250,6 +252,7 @@ hi def link ca65Number   Number
 hi def link ca65String   String
 hi def link ca65Operator Operator
 hi def link ca65Label    Typedef
+hi def link ca65Symbol   Type
 hi def link ca65Comment  Comment
 hi def link ca65Todo     Todo
 
