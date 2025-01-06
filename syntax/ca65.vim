@@ -38,12 +38,12 @@ syn match ca65Address "\s*($\x\{4})"      contained
 syn match ca65Address "\s*($\x\{2},[XY])" contained contains=ca65Registers,ca65WrongRegY
 syn match ca65Address "\s*($\x\{2}),[XY]" contained contains=ca65Registers,ca65WrongRegX
 
-" Numbers
-syn match ca65Number "#\?\d\+\>"
-syn match ca65Number "#\?$\x\+\>"
-syn match ca65Number "#\?\x\+h\>"
-syn match ca65Number "#\?%[01]\+\>"
-syn match ca65Number "#[<>]"he=e-1
+" Numbers & literal values
+syn match ca65NumDec "\d\+\>"
+syn match ca65NumHex "$\x\+\>"
+syn match ca65NumHex "\x\+h\>"
+syn match ca65NumBin "%[01]\+\>"
+syn match ca65Literal "#"
 
 " ref: https://cc65.github.io/doc/ca65.html
 " Operators
@@ -248,7 +248,11 @@ hi def link ca65Address   Type
 hi def link ca65WrongRegX Error
 hi def link ca65WrongRegY Error
 
-hi def link ca65Number   Number
+hi def link ca65NumDec  Number
+hi def link ca65NumHex  Number
+hi def link ca65NumBin  Number
+hi def link ca65Literal Number
+
 hi def link ca65String   String
 hi def link ca65Operator Operator
 hi def link ca65Label    Typedef
